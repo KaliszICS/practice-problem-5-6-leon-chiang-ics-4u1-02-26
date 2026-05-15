@@ -27,5 +27,42 @@ public class Smartphone {
             display.turnOn();
             return "Powering on" + brand + " " + model;
         }
+        return "Cannot power on: Battery depleted";
+    }
+    
+    public String powerOff() {
+        display.turnOff();
+        return "Powering off" + brand + " " + model;
+    }
+
+    public void chargeBattery() {
+        battery.charge();
+    }
+
+    public String runApp(String appName) {
+        if (display.getOnOff() == true) {
+            return processor.processTask(appName);
+        }
+        return "Phone is off. Cannot run " + appName;
+    }
+
+    public void upgradeComponent (Battery newBattery) {
+        battery = newBattery;
+    }
+
+    public void upgradeComponent (Processor newProcessor) {
+        processor = newProcessor;
+    }
+
+    public void upgradeComponent (Display newDisplay) {
+        display = newDisplay;
+    }
+    
+    @Override
+    public String toString() {
+        return this.brand + " " + this.model + " Smartphone\n" +
+               this.battery.toString() + "\n" +
+               this.display.toString() + "\n" +
+               this.processor.toString();
     }
 }

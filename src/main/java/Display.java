@@ -19,6 +19,10 @@ public class Display {
         return "Display turned off";
     }
 
+    public boolean getOnOff() {
+        return this.onOff;
+    }
+
     public double getSizeInches() {
         return sizeInches;
     }
